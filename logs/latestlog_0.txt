@@ -1,0 +1,244 @@
+--------- beginning with launcher debug
+Info: Launcher version: dahlia-209-0a485c9b0-v3_openjdk
+Info: LWJGL3 directory: [lwjgl-glfw-classes.jar, version]
+Architecture: arm64
+Info: Custom Java arguments: ""
+Info: Selected Minecraft version: 1.19.3
+--------- beginning of perf
+
+Added custom env: TMPDIR=/data/user/0/net.kdt.pojavlaunch/cache
+Added custom env: AWTSTUB_WIDTH=2288
+Added custom env: POJAV_NATIVEDIR=/data/app/~~3S8PNXWEAM6xvN1AtCT6kQ==/net.kdt.pojavlaunch-RWOlI_p0uHZM8sje5hVliQ==/lib/arm64
+Added custom env: REGAL_GL_VERSION=4.5
+Added custom env: REGAL_GL_VENDOR=Android
+Added custom env: LIBGL_MIPMAP=3
+Added custom env: allow_higher_compat_version=true
+Added custom env: MESA_GLSL_CACHE_DIR=/data/user/0/net.kdt.pojavlaunch/cache
+Added custom env: HOME=/storage/emulated/0/Android/data/net.kdt.pojavlaunch/files/.minecraft
+Added custom env: PATH=/data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/bin:/product/bin:/apex/com.android.runtime/bin:/apex/com.android.art/bin:/system_ext/bin:/system/bin:/system/xbin:/odm/bin:/vendor/bin:/vendor/xbin
+Added custom env: LIBGL_NOINTOVLHACK=1
+Added custom env: force_glsl_extensions_warn=true
+Added custom env: LIBGL_NORMALIZE=1
+Added custom env: LD_LIBRARY_PATH=/data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/jli:/data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib:/system/lib64:/vendor/lib64:/vendor/lib64/hw:/data/app/~~3S8PNXWEAM6xvN1AtCT6kQ==/net.kdt.pojavlaunch-RWOlI_p0uHZM8sje5hVliQ==/lib/arm64
+Added custom env: POJAV_RENDERER=opengles2
+Added custom env: LIBGL_ES=2
+Added custom env: VTEST_SOCKET_NAME=/data/user/0/net.kdt.pojavlaunch/cache/.virgl_test
+Added custom env: MESA_LOADER_DRIVER_OVERRIDE=zink
+Added custom env: MESA_GLSL_VERSION_OVERRIDE=460
+Added custom env: JAVA_HOME=/data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz
+Added custom env: MESA_GL_VERSION_OVERRIDE=4.6
+Added custom env: allow_glsl_extension_directive_midshader=true
+Added custom env: REGAL_GL_RENDERER=Regal
+Added custom env: AWTSTUB_HEIGHT=1080
+--------- beginning of system
+
+--------- beginning of main
+
+I/LIBGL   (14081): Initialising gl4es
+I/LIBGL   (14081): v1.1.4 built on Dec  6 2022 11:42:26
+I/LIBGL   (14081): Using GLES 2.0 backend
+I/LIBGL   (14081): loaded: libGLESv2.so
+I/LIBGL   (14081): loaded: libEGL.so
+I/LIBGL   (14081): Using GLES 2.0 backend
+I/LIBGL   (14081): Hardware Full NPOT detected and used
+I/LIBGL   (14081): FBO are in core, and so used
+I/LIBGL   (14081): PointSprite are in core, and so used
+I/LIBGL   (14081): CubeMap are in core, and so used
+I/LIBGL   (14081): BlendColor is in core, and so used
+I/LIBGL   (14081): Blend Substract is in core, and so used
+I/LIBGL   (14081): Blend Function and Equation Separation is in core, and so used
+I/LIBGL   (14081): Texture Mirrored Repeat is in core, and so used
+I/LIBGL   (14081): Extension GL_OES_element_index_uint  detected and used
+I/LIBGL   (14081): Extension GL_OES_packed_depth_stencil  detected and used
+I/LIBGL   (14081): Extension GL_OES_depth24  detected and used
+I/LIBGL   (14081): Extension GL_OES_rgb8_rgba8  detected and used
+I/LIBGL   (14081
+): Extension GL_EXT_texture_format_BGRA8888  detected and used
+I/LIBGL   (14081): Extension GL_OES_depth_texture  detected and used
+I/LIBGL   (14081): Extension GL_OES_texture_stencil8  detected and used
+I/LIBGL   (14081): Extension GL_OES_texture_float  detected and used
+I/LIBGL   (14081): Extension GL_OES_texture_half_float  detected and used
+I/LIBGL   (14081): Extension GL_EXT_color_buffer_float  detected and used
+I/LIBGL   (14081): Extension GL_EXT_color_buffer_half_float  detected and used
+I/LIBGL   (14081): high precision float in fragment shader available and used
+I/LIBGL   (14081): Max vertex attrib: 32
+I/LIBGL   (14081): Extension GL_OES_standard_derivatives  detected and used
+I/LIBGL   (14081): Max texture size: 16384
+I/LIBGL   (14081): Max Varying Vector: 31
+I/LIBGL   (14081): Texture Units: 16/16 (hardware: 16), Max lights: 8, Max planes: 6
+I/LIBGL   (14081): Extension GL_EXT_texture_filter_anisotropic  detected and used
+I/LIBGL   (14081): Max Anisotropic filtering: 16
+I/LIBGL   (14081): Hardware 
+vendor is Qualcomm
+
+I/LIBGL   (14081): GLSL 300 es supported
+I/LIBGL   (14081): GLSL 310 es supported and used
+I/LIBGL   (14081): GLSL 320 es supported
+I/LIBGL   (14081): Max Color Attachments: 8 / Draw buffers: 8
+I/LIBGL   (14081): sRGB surface supported
+I/LIBGL   (14081): EGLImage to Texture2D supported
+I/LIBGL   (14081): EGLImage to RenderBuffer supported
+I/LIBGL   (14081): ignore MipMap
+I/LIBGL   (14081): Targeting OpenGL 2.1
+I/LIBGL   (14081): No hack in shader converter to define overloaded function with int
+I/LIBGL   (14081): NPOT texture handled in hardware
+I/LIBGL   (14081): Not trying to batch small subsequent glDrawXXXX
+I/LIBGL   (14081): try to use VBO
+I/LIBGL   (14081): glX Will try to recycle EGL Surface
+
+I/LIBGL   (14081): Current folder is:/
+I/jrelog  (14081): dlopen libgl4es_114.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjli.so success
+I/jrelog  (14081): dlopen libjvm.so failed: dlopen failed: library "libjvm.so" not found
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/server/libjvm.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libverify.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjava.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libnet.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libnio.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libawt.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libawt_headless.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libfreetype.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libfontmanager.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libawt.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/server/libjvm.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/server/libjsig.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libattach.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjavajpeg.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libsyslookup.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libfontmanager.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libj2pcsc.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libmanagement.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjaas.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libfreetype.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjli.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjimage.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjsig.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libj2gss.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libnet.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjava.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libnio.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libprefs.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libmanagement_ext.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libj2pkcs11.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libdt_socket.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjdwp.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libzip.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libsctp.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libmlib_image.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libextnet.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libinstrument.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libmanagement_agent.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/librmi.so success
+
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/liblcms.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libjawt.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libverify.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libawt_headless.so success
+I/jrelog  (14081): dlopen /data/user/0/net.kdt.pojavlaunch/runtimes/jdk17-arm64-20210825-release.tar.xz/lib/libawt_xawt.so success
+
+I/jrelog  (14081): dlopen /data/app/~~3S8PNXWEAM6xvN1AtCT6kQ==/net.kdt.pojavlaunch-RWOlI_p0uHZM8sje5hVliQ==/lib/arm64/libopenal.so success
+
+I/jrelog  (14081): Done processing args
+I/jrelog  (14081): Found JLI lib
+I/jrelog  (14081): Calling JLI_Launch
+
+java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at com.github.caciocavallosilano.cacio.ctc.FontManagerUtil$1.run(FontManagerUtil.java:24)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at com.github.caciocavallosilano.cacio.ctc.FontManagerUtil.setFontManager(FontManagerUtil.java:17)
+	at com.github.caciocavallosilano.cacio.ctc.CTCPreloadClassLoader.<clinit>(CTCPreloadClassLoader.java:81)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at java.base/java.lang.ClassLoader.initSystemClassLoader(ClassLoader.java:1983)
+	at java.base/java.lang.System.initPhase3(System.java:2202)
+Caused by: java.lang.NullPointerException: Cannot load from short array because "sun.awt.FontConfiguration.head" is null
+	at java.desktop/sun.awt.FontConfiguration.getVersion(FontConfiguration.java:1262)
+	at java.desktop/sun.awt.FontConfiguration.readFontConfigFile(FontConfiguration.java:224)
+	at java.desktop/sun.awt.FontConfiguration.init(FontConfiguration.java:106)
+	at java.desktop/sun.awt.X11FontManager.createFontConfiguration(X11FontManager.java:706)
+	at java.desktop/sun.font.SunFontManager$2.run(SunFontManager.java:358)
+	at java.desktop/sun.font.SunFontManager$2.run(SunFontManager.java:315)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at java.desktop/sun.font.SunFontManager.<init>(SunFontManager.java:315)
+	at java.desktop/sun.awt.FcFontManager.<init>(FcFontManager.java:35)
+	at java.desktop/sun.awt.X11FontManager.<init>(X11FontManager.java:56)
+	... 16 more
+Error occurred during initialization of VM
+java.lang.InternalError: java.lang.reflect.InvocationTargetException
+	at com.github.caciocavallosilano.cacio.ctc.FontManagerUtil$1.run(FontManagerUtil.java:36)
+	at java.security.AccessController.doPrivileged(java.base@17-internal/AccessController.java:318)
+	at com.github.caciocavallosilano.cacio.ctc.FontManagerUtil.setFontManager(FontManagerUtil.java:17)
+	at com.github.caciocavallosilano.cacio.ctc.CTCPreloadClassLoader.<clinit>(CTCPreloadClassLoader.java:81)
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(java.base@17-internal/Native Method)
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(java.base@17-internal/NativeConstructorAccessorImpl.java:77)
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(java.base@17-internal/DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstanceWithCaller(java.base@17-internal/Constructor.java:499)
+	at java.lang.reflect.Constructor.newInstance(java.base@17-internal/Constructor.java:480)
+	at java.lang.ClassLoader.initSystemClassLoader(java.base@17-internal/ClassLoader.java:1983)
+	at java.lang.System.initPhase3(java.base@17-internal/System.java:2202)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(java.base@17-internal/Native Method)
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(java.base@17-internal/NativeConstructorAccessorImpl.java:77)
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(java.base@17-internal/DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstanceWithCaller(java.base@17-internal/Constructor.java:499)
+	at java.lang.reflect.Constructor.newInstance(java.base@17-internal/Constructor.java:480)
+	at com.github.caciocavallosilano.cacio.ctc.FontManagerUtil$1.run(FontManagerUtil.java:24)
+	at java.security.AccessController.doPrivileged(java.base@17-internal/AccessController.java:318)
+	at com.github.caciocavallosilano.cacio.ctc.FontManagerUtil.setFontManager(FontManagerUtil.java:17)
+	at com.github.caciocavallosilano.cacio.ctc.CTCPreloadClassLoader.<clinit>(CTCPreloadClassLoader.java:81)
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(java.base@17-internal/Native Method)
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(java.base@17-internal/NativeConstructorAccessorImpl.java:77)
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(java.base@17-internal/DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstanceWithCaller(java.base@17-internal/Constructor.java:499)
+	at java.lang.reflect.Constructor.newInstance(java.base@17-internal/Constructor.java:480)
+	at java.lang.ClassLoader.initSystemClassLoader(java.base@17-internal/ClassLoader.java:1983)
+	at java.lang.System.initPhase3(java.base@17-internal/System.java:2202)
+Caused by: java.lang.NullPointerException
+	at sun.awt.FontConfiguration.getVersion(java.desktop@17-internal/FontConfiguration.java:1262)
+	at sun.awt.FontConfiguration.readFontConfigFile(java.desktop@17-internal/FontConfiguration.java:224)
+	at sun.awt.FontConfiguration.init(java.desktop@17-internal/FontConfiguration.java:106)
+	at sun.awt.X11FontManager.createFontConfiguration(java.desktop@17-internal/X11FontManager.java:706)
+	at sun.font.SunFontManager$2.run(java.desktop@17-internal/SunFontManager.java:358)
+	at sun.font.SunFontManager$2.run(java.desktop@17-internal/SunFontManager.java:315)
+	at java.security.AccessController.doPrivileged(java.base@17-internal/AccessController.java:318)
+	at sun.font.SunFontManager.<init>(java.desktop@17-internal/SunFontManager.java:315)
+	at sun.awt.FcFontManager.<init>(java.desktop@17-internal/FcFontManager.java:35)
+	at sun.awt.X11FontManager.<init>(java.desktop@17-internal/X11FontManager.java:56)
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(java.base@
