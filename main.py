@@ -1,5 +1,8 @@
 import functions_framework
 import re
+
+import jsons
+
 from interfaces import *
 
 
@@ -9,6 +12,24 @@ def parse_version(log: str) -> PojavLauncherVersion:
     return PojavLauncherVersion(
         results.group(1), results.group(2),
         results.group(3), results.group(4))
+
+
+def parse_minecraft_version(log: str) -> MinecraftVersion:
+    version_name_pattern = r'Selected Minecraft version: (.*)'
+    analyzed_version = MinecraftVersion('UNKNOWN', VersionType.VANILLA)
+
+    regex_version_name = re.search(version_name_pattern, log)
+    if regex_version_name:
+        analyzed_version.name = regex_version_name.group(1).lower()
+
+    if 'forge' in analyzed_version.name:
+        analyzed_version.type = VersionType.FORGE
+    if 'optifine' in analyzed_version.name:
+        analyzed_version.type = VersionType.OPTIFINE
+    if 'fabric' in analyzed_version.name:
+        analyzed_version.type = VersionType.FABRIC
+
+    return analyzed_version
 
 
 def parse_architecture(log: str) -> str:
@@ -78,13 +99,30 @@ def parse_renderer(log: str) -> PojavRenderer:
     if 'POJAV_RENDERER=opengles3_desktopgl_angle_vulkan' in log:
         return PojavRenderer.ANGLE
 
+    return PojavRenderer.UNKNOWN
+
+
+def parse_build_type(log: str) -> BuildType:
+    if 'net.kdt.pojavlaunch.debug' in log:
+        return BuildType.DEBUG
+    if 'net.kdt.pojavlaunch' in log:
+        return BuildType.PRODUCTION
+    return BuildType.UNKNOWN
+
 
 def parse_log(content_log: str) -> dict:
-    print(content_log)
-    return {
+    json_result = {
+        'version': parse_version(content_log),
+        'minecraft_version': parse_minecraft_version(content_log),
         'renderer': parse_renderer(content_log),
-        'env_variables': parse_env_variables(content_log)
+        'env_variables': parse_env_variables(content_log),
+        'build_type': parse_build_type(content_log),
+        'architecture': parse_architecture(content_log),
+        'java_arguments': parse_java_arguments(content_log)
     }
+    json_result['java_runtime'] = parse_java_runtime(json_result['env_variables']['JAVA_HOME'])
+
+    return json_result
 
 
 @functions_framework.http
@@ -99,5 +137,5 @@ def handle_request(request):
             Response object using `make_response`
             <https://flask.palletsprojects.com/en/latest/api/>.
         """
-    return parse_log(request.data.decode('utf-8'))
+    return jsons.dumps(parse_log(request.data.decode('utf-8')))
 

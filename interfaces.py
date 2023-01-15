@@ -36,6 +36,15 @@ class PojavLauncherVersion:
 
 
 @dataclass
+class VersionType(str, Enum):
+    VANILLA = 'VANILLA'
+    OPTIFINE = 'OPTIFINE'
+    FORGE = 'FORGE'
+    FABRIC = 'FABRIC'
+    UNKNOWN = 'UNKNOWN'
+
+
+@dataclass
 class PojavRenderer(str, Enum):
     GL4ES_114 = 'GL4ES_114'
     GL4ES_115 = 'GL4ES_115'
@@ -47,8 +56,15 @@ class PojavRenderer(str, Enum):
 
 
 @dataclass
+class BuildType(str, Enum):
+    DEBUG = 'DEBUG'
+    PRODUCTION = 'PRODUCTION'
+    UNKNOWN = 'UNKNOWN'
+
+
+@dataclass
 class MinecraftVersion:
-    vanilla: str
-    # TODO handle the modloaders
+    name: str = 'UNKNOWN'
+    type: VersionType = VersionType.UNKNOWN
 
 
