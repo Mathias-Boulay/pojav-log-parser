@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v3
 
     - id: auth
-      uses: google-github-actions/auth@v0
+      uses: 'google-github-actions/auth@v1'
       with:
         credentials_json: '${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}'
 
@@ -23,8 +23,19 @@ jobs:
         gcloud
         functions
         deploy
-        my-function
+        pojav-parser-function
         --region us-west1
         --source=.
         --runtime=python310
+        --gen2
+        --trigger-http
+        --allow-unauthenticated
+
+    - id: 'describe'
+      run: >
+        gcloud
+        functions
+        describe
+        pojav-parser-function
+        --region us-west1
         --gen2
