@@ -30,6 +30,7 @@ jobs:
         --gen2
         --trigger-http
         --allow-unauthenticated
+        --entry-point=handle_request
 
     - id: 'describe'
       run: >
