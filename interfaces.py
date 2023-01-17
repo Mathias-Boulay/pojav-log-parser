@@ -7,6 +7,15 @@ from enum import Enum
 
 
 @dataclass
+class Architecture(str, Enum):
+    ARM_32 = 'ARM_32'
+    ARM_64 = 'ARM_64'
+    X86_32 = 'X86_32'
+    X86_64 = 'X86_64'
+    UNKNOWN = 'UNKNOWN'
+
+
+@dataclass
 class JavaRuntimeSource(str, Enum):
     INTERNAL = 'INTERNAL'
     EXTERNAL = 'EXTERNAL'
