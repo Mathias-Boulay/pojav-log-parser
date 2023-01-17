@@ -32,10 +32,17 @@ def parse_minecraft_version(log: str) -> MinecraftVersion:
     return analyzed_version
 
 
-def parse_architecture(log: str) -> str:
+def parse_architecture(log: str) -> Architecture:
     pattern = 'Architecture: (.*)$'
-    results = re.search(pattern, log, re.MULTILINE)
-    return results.group(1)
+    result = re.search(pattern, log, re.MULTILINE).group(1)
+    result = result.strip()
+    if 'arm64' in result:
+        return Architecture.ARM_64
+    if 'arm' in result:
+        return Architecture.ARM_32
+
+    # TODO detect x86 architecture !
+    return Architecture.UNKNOWN
 
 
 def parse_java_arguments(log: str) -> str:
