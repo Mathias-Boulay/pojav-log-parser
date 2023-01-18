@@ -6,7 +6,6 @@ from dataclasses import dataclass
 from enum import Enum
 
 
-@dataclass
 class Architecture(str, Enum):
     ARM_32 = 'ARM_32'
     ARM_64 = 'ARM_64'
@@ -15,14 +14,12 @@ class Architecture(str, Enum):
     UNKNOWN = 'UNKNOWN'
 
 
-@dataclass
 class JavaRuntimeSource(str, Enum):
     INTERNAL = 'INTERNAL'
     EXTERNAL = 'EXTERNAL'
     UNKNOWN = 'UNKNOWN'
 
 
-@dataclass
 class JavaRuntimeType(str, Enum):
     JDK = 'JDK'
     JRE = 'JRE'
@@ -44,7 +41,6 @@ class PojavLauncherVersion:
     branch: str
 
 
-@dataclass
 class VersionType(str, Enum):
     VANILLA = 'VANILLA'
     OPTIFINE = 'OPTIFINE'
@@ -53,7 +49,6 @@ class VersionType(str, Enum):
     UNKNOWN = 'UNKNOWN'
 
 
-@dataclass
 class PojavRenderer(str, Enum):
     GL4ES_114 = 'GL4ES_114'
     GL4ES_115 = 'GL4ES_115'
@@ -64,7 +59,6 @@ class PojavRenderer(str, Enum):
     UNKNOWN = 'UNKNOWN'
 
 
-@dataclass
 class BuildType(str, Enum):
     DEBUG = 'DEBUG'
     PRODUCTION = 'PRODUCTION'
