@@ -1,9 +1,12 @@
 import re
+
+from src.checker import check_for_errors
 from src.interfaces import *
+from src.locale import localize
 
 
 def parse_version(log: str) -> PojavLauncherVersion:
-    pattern = 'Info: Launcher version: (.*?)-(.*?)-(.*?)-(.*)$'
+    pattern = r'Info: Launcher version: (.*?)-(.*?)-(.*?)-(\S*)'
     results = re.search(pattern, log, re.MULTILINE)
     return PojavLauncherVersion(
         results.group(1), results.group(2),
@@ -42,7 +45,7 @@ def parse_architecture(log: str) -> Architecture:
 
 
 def parse_java_arguments(log: str) -> str:
-    pattern = 'Info: Custom Java arguments: (.*)$'
+    pattern = 'Info: Custom Java arguments:.*?\"(.*)\"'
     results = re.search(pattern, log, re.MULTILINE)
     return results.group(1)
 
@@ -113,7 +116,7 @@ def parse_build_type(log: str) -> BuildType:
     return BuildType.UNKNOWN
 
 
-def parse_log(content_log: str) -> dict:
+def parse_log(content_log: str, should_localize: bool=False) -> dict:
     json_result = {
         'version': parse_version(content_log),
         'minecraft_version': parse_minecraft_version(content_log),
@@ -124,5 +127,11 @@ def parse_log(content_log: str) -> dict:
         'java_arguments': parse_java_arguments(content_log)
     }
     json_result['java_runtime'] = parse_java_runtime(json_result['env_variables']['JAVA_HOME'])
+
+    # errors
+    if not should_localize:
+        json_result['errors'] = check_for_errors(content_log, json_result)
+    else:
+        json_result['errors'] = localize(check_for_errors(content_log, json_result))
 
     return json_result

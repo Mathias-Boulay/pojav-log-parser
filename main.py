@@ -17,5 +17,5 @@ def handle_request(request):
             Response object using `make_response`
             <https://flask.palletsprojects.com/en/latest/api/>.
         """
-    return jsons.dumps(parse_log(request.data.decode('utf-8')))
+    return jsons.dumps(parse_log(request.data.decode('utf-8'), request.args.get('should_localize', False)))
 
