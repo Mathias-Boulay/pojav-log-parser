@@ -79,7 +79,7 @@ def parse_java_runtime(java_path: str) -> JavaRuntime:
     results = re.search(pattern, java_path)
     try:
         runtime.version = int(results.group(1))
-    except IndexError | TypeError:
+    except (IndexError, TypeError) as error:
         print('Error during java runtime parsing')
 
     return runtime
