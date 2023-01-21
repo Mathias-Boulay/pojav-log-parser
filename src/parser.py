@@ -65,7 +65,7 @@ def parse_java_runtime(java_path: str) -> JavaRuntime:
     java_path = java_path.casefold()
     if java_path.endswith('/internal'):
         return JavaRuntime(8, JavaRuntimeSource.INTERNAL, JavaRuntimeType.JRE)
-    if java_path.endswith('/internal17'):
+    if java_path.endswith('/internal17') or java_path.endswith('/internal-17'):
         return JavaRuntime(17, JavaRuntimeSource.INTERNAL, JavaRuntimeType.JRE)
 
     runtime = JavaRuntime()
