@@ -73,7 +73,8 @@ def check_runtime(runtime: JavaRuntime) -> list[str]:
 
 def check_early_fail(log: str) -> list[str]:
     errors = []
-    if 'Could not create the Java Virtual Machine' in log:
+    if 'Could not create the Java Virtual Machine' in log\
+            or 'Error occurred during initialization of VM' in log:
         errors.append('runtime.early.fail')
     if 'Unrecognized VM option ' in log:
         errors.append('java.args.unrecognised')
