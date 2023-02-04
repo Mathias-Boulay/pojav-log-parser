@@ -1,5 +1,6 @@
 from src.interfaces import *
 from src.locale import localize
+from src.parser import parse_forge_mods
 
 
 def check_env_variables(env_variables: dict) -> list[str]:
@@ -52,13 +53,45 @@ def check_java_arguments(java_args: str) -> bool:
     return not java_args
 
 
-def check_branch(version: PojavLauncherVersion) -> bool:
+def check_branch(version: PojavLauncherVersion) -> list[str]:
     if version.branch != "v3_openjdk":
-        return False
+        return ['branch.not.mainline']
 
-    return True
+    return []
 
 # TODO check whether the commit is the latest ?
+
+
+def check_runtime(runtime: JavaRuntime) -> list[str]:
+    errors = []
+    if runtime.source != JavaRuntimeSource.INTERNAL:
+        errors.append('java.runtime.wrong.source')
+    if runtime.type != JavaRuntimeType.JRE:
+        errors.append('java.runtime.wrong.type')
+    return errors
+
+
+def check_early_fail(log: str) -> list[str]:
+    errors = []
+    if 'Could not create the Java Virtual Machine' in log:
+        errors.append('runtime.early.fail')
+    if 'Unrecognized VM option ' in log:
+        errors.append('java.args.unrecognised')
+    return errors
+
+
+def check_forge_mod_errors(log: str, version: MinecraftVersion) -> list[str]:
+    """A list of mods that crashed within the log"""
+    if version.type != VersionType.FORGE:
+        return []
+
+    errors = []
+    for mod in parse_forge_mods(log):
+        if 'E' in mod[0]:  # Meaning the mod has crashed
+            # TODO add the ability to localize this !
+            errors.append("Error with mod: " + mod[1])
+
+    return errors
 
 
 def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
@@ -70,14 +103,10 @@ def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
         errors.append('java.args.unparsed')
 
     # Branch checks
-    if not check_branch(parsed_dict['version']):
-        errors.append('branch.not.mainline')
+    errors += check_branch(parsed_dict['version'])
 
     # Runtime checks
-    if parsed_dict['java_runtime'].source != JavaRuntimeSource.INTERNAL:
-        errors.append('java.runtime.wrong.source')
-    if parsed_dict['java_runtime'].type != JavaRuntimeType.JRE:
-        errors.append('java.runtime.wrong.type')
+    errors += check_runtime(parsed_dict['java_runtime'])
 
     # Virgl + 32 bits combo check
     if parsed_dict['renderer'] == PojavRenderer.VIRGL and \
@@ -85,13 +114,19 @@ def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
         errors.append('renderer.unsupported.arch')
 
     # Corruption errors
-    # Chrome
+    # Chrome corrupting jars and zips
     if parsed_dict['minecraft_version'].type == VersionType.FORGE and 'java.lang.NoClassDefFoundError' in log:
         errors.append('install.forge.corrupted')
 
     # Shader errors
     if 'could not reload shaders' in log:
         errors.append('load.shader.fail')
+
+    # Early runtime errors
+    errors += check_early_fail(log)
+
+    # Modding errors
+    errors += check_forge_mod_errors(log, parsed_dict['minecraft_version'])
 
     # TODO more verification
 

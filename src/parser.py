@@ -1,8 +1,6 @@
 import re
 
-from src.checker import check_for_errors
 from src.interfaces import *
-from src.locale import localize
 
 
 def parse_version(log: str) -> PojavLauncherVersion:
@@ -116,22 +114,17 @@ def parse_build_type(log: str) -> BuildType:
     return BuildType.UNKNOWN
 
 
-def parse_log(content_log: str, should_localize: bool=False) -> dict:
-    json_result = {
-        'version': parse_version(content_log),
-        'minecraft_version': parse_minecraft_version(content_log),
-        'renderer': parse_renderer(content_log),
-        'env_variables': parse_env_variables(content_log),
-        'build_type': parse_build_type(content_log),
-        'architecture': parse_architecture(content_log),
-        'java_arguments': parse_java_arguments(content_log)
-    }
-    json_result['java_runtime'] = parse_java_runtime(json_result['env_variables']['JAVA_HOME'])
-
-    # errors
-    if not should_localize:
-        json_result['errors'] = check_for_errors(content_log, json_result)
+def parse_shader_dump(log: str, env_variable: dict) -> list[str]:
+    if env_variable.get('LIBGL_VGPU_DUMP'):
+        # Note that this method might be quite slow
+        # TODO dump original shaders ?
+        translated_shaders = re.findall(r'^New VGPU Shader conversion:.*?}\n{2}', log, re.MULTILINE | re.IGNORECASE | re.DOTALL)
+        return translated_shaders
     else:
-        json_result['errors'] = localize(check_for_errors(content_log, json_result))
+        return []
 
-    return json_result
+
+def parse_forge_mods(content_log: str) -> list[str]:
+    """Parse existing mods in the forge error print out: [[state, mod_name]]"""
+    return re.findall(r'^\t\| ([ULCHIJADE].*?) {2}\| (.*?) *\|', content_log, re.MULTILINE)
+
