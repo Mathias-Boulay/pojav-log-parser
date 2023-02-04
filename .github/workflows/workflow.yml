@@ -41,3 +41,4 @@ jobs:
         pojav-parser-function
         --region us-west1
         --gen2
+        --memory=128Mi
