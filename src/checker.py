@@ -1,3 +1,5 @@
+import re
+
 from src.interfaces import *
 from src.locale import localize
 from src.parser import parse_forge_mods
@@ -105,6 +107,18 @@ def check_oom(log: str) -> list[str]:
     return errors
 
 
+def check_open_gl_errors(log: str, version: MinecraftVersion):
+    errors = []
+    # Generic ogl error detection
+    if re.search(r'opengl error', log, re.MULTILINE | re.IGNORECASE):
+        errors.append('opengl.generic.error')
+
+    # Render region set on
+    if version.type != VersionType.VANILLA:
+        if '[OptiFine] OpenGL error: 1280 (Invalid enum), at: Copy VBO' in log:
+            errors.append('optifine.render_region.on')
+    return errors
+
 
 def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
     errors = []
@@ -142,6 +156,9 @@ def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
 
     # Modding errors
     errors += check_forge_mod_errors(log, parsed_dict['minecraft_version'])
+
+    # OpenGL errors
+    errors += check_open_gl_errors(log, parsed_dict['minecraft_version'])
 
     # TODO more verification
 

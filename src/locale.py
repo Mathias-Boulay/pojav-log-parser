@@ -16,7 +16,7 @@ en_locale = {
     'install.forge.corrupted': 'Corrupted forge install detected',
     'load.shader.fail': 'Some shaders failed to be loaded',
     'runtime.early.fail': 'The program failed early',
-
+    'optifine.render_region.on': 'Optifine render region setting seems to be on',
 }
 
 
