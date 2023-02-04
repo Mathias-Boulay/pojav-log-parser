@@ -26,7 +26,7 @@ def check_java_arguments(java_args: str) -> bool:
     Reimplementation of the java argument parser
     Warns if something was left unparsed or something
     """
-    separators = ["-XX:-", "-XX:+", "-XX:", "--", "-D", "-X"]
+    separators = ["-XX:-", "-XX:+", "-XX:", "--", "-D", "-X", "-javaagent:", "-verbose"]
     for separator in separators:
         while True:
             start_index = java_args.find(separator)
