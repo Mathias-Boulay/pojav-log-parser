@@ -10,10 +10,13 @@ en_locale = {
     'branch.not.mainline': 'The branch is not mainline',
     'java.runtime.wrong.source': 'Unexpected source for the java runtime !',
     'java.runtime.wrong.type': 'The runtime is not a JRE !',
+    'java.runtime.oom': 'The game ran out of memory',
+    'java.runtime.oom.start': 'The JVM couldn\'t allocated the desired memory amount at start',
     'renderer.unsupported.arch': 'Unsupported renderer on 32 bits !',
     'install.forge.corrupted': 'Corrupted forge install detected',
     'load.shader.fail': 'Some shaders failed to be loaded',
     'runtime.early.fail': 'The program failed early',
+
 }
 
 

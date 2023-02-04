@@ -95,6 +95,17 @@ def check_forge_mod_errors(log: str, version: MinecraftVersion) -> list[str]:
     return errors
 
 
+def check_oom(log: str) -> list[str]:
+    errors = []
+    if 'java.lang.OutOfMemoryError: Java heap space' in log:
+        errors.append('java.runtime.oom')
+    if 'Could not reserve enough space for' in log:
+        errors.append('java.runtime.oom.start')
+
+    return errors
+
+
+
 def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
     errors = []
 
@@ -125,6 +136,9 @@ def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
 
     # Early runtime errors
     errors += check_early_fail(log)
+
+    # Java heap space errors
+    errors += check_oom(log)
 
     # Modding errors
     errors += check_forge_mod_errors(log, parsed_dict['minecraft_version'])
