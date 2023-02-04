@@ -28,6 +28,7 @@ jobs:
         --source=.
         --runtime=python310
         --gen2
+        --memory=128MB
         --trigger-http
         --allow-unauthenticated
         --entry-point=handle_request
