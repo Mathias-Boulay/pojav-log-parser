@@ -128,11 +128,11 @@ def check_offline_account(log: str, minecraft_username: str) -> list[str]:
 
     errors = []
     try:
-        response = requests.get('https://api.minetools.eu/uuid/{}'.format(minecraft_username))
-        response.raise_for_status()
-        response_json = response.json()
-        if response_json['status'] != 'OK':
+        response = requests.get('https://api.ashcon.app/mojang/v2/user/{}'.format(minecraft_username))
+        if response.status_code == 404:
             errors.append('account.offline')
+        else:
+            response.raise_for_status()
     except Exception as e:
         print('Unable to request minetools with the username: {}'.format(minecraft_username))
         print(e)
