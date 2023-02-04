@@ -1,5 +1,7 @@
 import re
 
+import requests
+
 from src.interfaces import *
 from src.locale import localize
 from src.parser import parse_forge_mods
@@ -120,6 +122,25 @@ def check_open_gl_errors(log: str, version: MinecraftVersion):
     return errors
 
 
+def check_offline_account(log: str, minecraft_username: str) -> list[str]:
+    if not minecraft_username:  # Sometimes the crash is really early
+        return []
+
+    errors = []
+    try:
+        response = requests.get('https://api.minetools.eu/uuid/{}'.format(minecraft_username))
+        response.raise_for_status()
+        response_json = response.json()
+        if response_json['status'] != 'OK':
+            errors.append('account.offline')
+    except Exception as e:
+        print('Unable to request minetools with the username: {}'.format(minecraft_username))
+        print(e)
+
+    return errors
+    # TODO check with the realms status
+
+
 def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
     errors = []
 
@@ -159,6 +180,9 @@ def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
 
     # OpenGL errors
     errors += check_open_gl_errors(log, parsed_dict['minecraft_version'])
+
+    # Offline account
+    errors += check_offline_account(log, parsed_dict['minecraft_username'])
 
     # TODO more verification
 

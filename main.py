@@ -8,6 +8,7 @@ def parse_log(content_log: str, should_localize: bool = False) -> dict:
     json_result = {
         'version': parse_version(content_log),
         'minecraft_version': parse_minecraft_version(content_log),
+        'minecraft_username': parse_minecraft_username(content_log),
         'renderer': parse_renderer(content_log),
         'env_variables': parse_env_variables(content_log),
         'build_type': parse_build_type(content_log),

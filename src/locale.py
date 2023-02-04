@@ -17,6 +17,7 @@ en_locale = {
     'load.shader.fail': 'Some shaders failed to be loaded',
     'runtime.early.fail': 'The program failed early',
     'optifine.render_region.on': 'Optifine render region setting seems to be on',
+    'account.offline': 'The account is offline or doesn\'t exist'
 }
 
 
