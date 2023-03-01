@@ -28,7 +28,7 @@ jobs:
         --source=.
         --runtime=python310
         --gen2
-        --memory=128MB
+        --memory=128Mi
         --trigger-http
         --allow-unauthenticated
         --entry-point=handle_request
@@ -41,4 +41,3 @@ jobs:
         pojav-parser-function
         --region us-west1
         --gen2
-        --memory=128Mi
