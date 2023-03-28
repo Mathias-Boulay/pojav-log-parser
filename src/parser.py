@@ -137,5 +137,5 @@ def parse_minecraft_username(log: str) -> str:
 
 def parse_forge_mods(content_log: str) -> list[str]:
     """Parse existing mods in the forge error print out: [[state, mod_name]]"""
-    return re.findall(r'^\t\| ([ULCHIJADE].*?) {2}\| (.*?) *\|', content_log, re.MULTILINE)
+    return re.findall(r'^\t\| ([ULCHIJADE].*?) {1}\| (.*?) *\|', content_log, re.MULTILINE)
 
