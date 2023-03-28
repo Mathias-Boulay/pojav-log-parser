@@ -148,6 +148,15 @@ def check_offline_account(log: str, minecraft_username: str) -> list[str]:
     # TODO check with the realms status
 
 
+def check_for_fabric_errors(log: str):
+    errors = []
+
+    if 'Incompatible mod set' in log:
+        errors.append('fabric.incompatible.mods')
+
+    return errors
+
+
 def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
     errors = []
 
@@ -167,10 +176,13 @@ def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
             (parsed_dict['architecture'] == Architecture.ARM_32 or parsed_dict['architecture'] == Architecture.X86_32):
         errors.append('renderer.unsupported.arch')
 
+    if parsed_dict['minecraft_version'].type == VersionType.FABRIC:
+        errors += check_for_fabric_errors(log)
+
     # Corruption errors
     # Chrome corrupting jars and zips
     if parsed_dict['minecraft_version'].type == VersionType.FORGE and 'java.lang.NoClassDefFoundError' in log:
-        errors.append('install.forge.corrupted')
+        errors.append('forge.install.corrupted')
 
     # Shader errors
     if 'could not reload shaders' in log \
