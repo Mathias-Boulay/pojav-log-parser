@@ -173,7 +173,9 @@ def check_for_errors(log: str, parsed_dict: dict) -> list[str]:
         errors.append('install.forge.corrupted')
 
     # Shader errors
-    if 'could not reload shaders' in log:
+    if 'could not reload shaders' in log \
+            or 'shader version mismatch' in log\
+            or 'Failed to compile shader' in log:
         errors.append('load.shader.fail')
 
     # Early runtime errors
