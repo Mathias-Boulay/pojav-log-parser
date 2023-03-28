@@ -127,6 +127,13 @@ def check_offline_account(log: str, minecraft_username: str) -> list[str]:
         return []
 
     errors = []
+    # Validate the username using regex, rules from the official FAQ
+    # https://help.minecraft.net/hc/en-us/articles/4408950195341-Minecraft-Java-Edition-Username-VS-Gamertag-FAQ
+    if not re.match(r'[a-zA-Z0-9_]{3,}', minecraft_username.strip()):
+        errors.append('account.offline')
+        return errors
+
+    # Check indirectly against the mojang API
     try:
         response = requests.get('https://api.ashcon.app/mojang/v2/user/{}'.format(minecraft_username))
         if response.status_code == 404:
