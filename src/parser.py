@@ -37,8 +37,11 @@ def parse_architecture(log: str) -> Architecture:
         return Architecture.ARM_64
     if 'arm' in result:
         return Architecture.ARM_32
+    if 'x86_64' in result.lower():
+        return Architecture.X86_64
+    if 'x86' in result.lower():
+        return Architecture.X86_32
 
-    # TODO detect x86 architecture !
     return Architecture.UNKNOWN
 
 
