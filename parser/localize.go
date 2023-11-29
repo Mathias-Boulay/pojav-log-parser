@@ -12,21 +12,22 @@ func Localize(errors []string) {
 func LocalizeEnglish() map[string]string {
 	return map[string]string{
 		"mipmap.enabled":            "Mipmap is not disabled, this may destroy performance",
-		"libgles.wrong.value":       "Improper LIBGL_ES value !",
 		"libgl.custom.value":        "Custom openGL declaration !",
 		"java.args.unparsed":        "Some java arguments were not parsed",
 		"java.args.unrecognised":    "Java arguments were not recognised",
-		"branch.not.mainline":       "The branch is not mainline",
+		"build.not.mainline":        "The branch is not mainline",
+		"build.unknown":             "Unknown build type, no support ?",
 		"java.runtime.wrong.source": "Unexpected source for the java runtime !",
 		"java.runtime.wrong.type":   "The runtime is not a JRE !",
 		"java.runtime.oom":          "The game ran out of memory",
 		"java.runtime.oom.start":    "The JVM couldn't allocated the desired memory amount at start",
 		"renderer.unsupported.arch": "Unsupported renderer on 32 bits !",
-		"forge.install.corrupted":   "Corrupted forge install detected",
 		"fabric.incompatible.mods":  "Some fabric mods are incompatible",
 		"load.shader.fail":          "Some shaders failed to be loaded",
 		"runtime.early.fail":        "The program failed early",
 		"optifine.render_region.on": "Optifine render region setting seems to be on",
 		"account.offline":           "The account is offline or doesn't exist",
+		"opengl.generic.error":      "An OpenGL error occured",
+		"opengl.missing.functions":  "Some functions are missing !",
 	}
 }

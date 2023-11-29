@@ -257,6 +257,6 @@ func main() {
 	[17:45:00] [Render thread/INFO]: [OptiFine] (Reflector) Class not present: net.minecraftforge.fml.loading.ImmediateWindowHandler
 	OSMDroid: generating context`
 
-	json, _ := json.Marshal(parser.ParseLog(file))
+	json, _ := json.Marshal(parser.ParseLog(file, true))
 	log.Printf("%s", json)
 }

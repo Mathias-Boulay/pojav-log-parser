@@ -22,6 +22,6 @@ func Entrypoint(w http.ResponseWriter, r *http.Request) {
 	bodyText, _ := io.ReadAll(r.Body)
 
 	w.Header().Set("Content-Type", "application/json")
-	json, _ := json.Marshal(ParseLog(string(bodyText), r.Header.Get("localize") == "true"))
+	json, _ := json.Marshal(ParseLog(string(bodyText), r.URL.Query().Get("localize") == "true"))
 	w.Write(json)
 }

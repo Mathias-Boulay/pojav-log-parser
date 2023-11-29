@@ -30,7 +30,7 @@ func ParseMinecraftVersion(log string) types.MinecraftVersion {
 	for key, mcType := range types {
 		if strings.Contains(log, key) {
 			analyzedVersion.Type = mcType
-			//TODO break early ?
+			break
 		}
 	}
 
@@ -40,9 +40,7 @@ func ParseMinecraftVersion(log string) types.MinecraftVersion {
 /** Parse the mc architecture */
 func ParseArchitecture(log string) types.DeviceArchitecture {
 	pattern := regexp.MustCompile(`(?m)Architecture: (.*)$`)
-	tmp := pattern.FindStringSubmatch(log)
-	fmt.Printf("%s", tmp)
-	result := tmp[1]
+	result := pattern.FindStringSubmatch(log)[1]
 	result = strings.TrimSpace(result)
 
 	architectures := map[string]types.DeviceArchitecture{"arm64": types.ARM_64, "arm": types.ARM_32, "x86_64": types.X64, "x86": types.X86}
