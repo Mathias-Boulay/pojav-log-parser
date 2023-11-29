@@ -25,7 +25,7 @@ jobs:
           deploy
           pojav-parser-function
           --region us-west1
-          --source=.
+          --source=./parser
           --runtime=go121
           --gen2
           --memory=128MiB
