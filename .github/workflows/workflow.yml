@@ -1,0 +1,43 @@
+name: workflow
+run-name: workflow-deploy
+on:
+  push:
+    branches:
+      - "main"
+jobs:
+  job_id:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - id: auth
+        uses: "google-github-actions/auth@v1"
+        with:
+          credentials_json: "${{ secrets.SERVICE_ACCOUNT_CREDENTIALS }}"
+
+      - name: "Set up Cloud SDK"
+        uses: "google-github-actions/setup-gcloud@v0"
+
+      - id: "deploy"
+        run: >
+          gcloud
+          functions
+          deploy
+          pojav-parser-function
+          --region us-west1
+          --source=.
+          --runtime=go121
+          --gen2
+          --memory=128MiB
+          --trigger-http
+          --allow-unauthenticated
+          --entry-point=Entrypoint
+
+      - id: "describe"
+        run: >
+          gcloud
+          functions
+          describe
+          pojav-parser-function
+          --region us-west1
+          --gen2
