@@ -3,7 +3,7 @@ run-name: workflow-deploy
 on:
   push:
     branches:
-      - "main"
+      - "main-go"
 jobs:
   job_id:
     runs-on: ubuntu-latest
